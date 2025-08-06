@@ -1,0 +1,2342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">    <title>Global-Line - Premium Logistics Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a5f7a;
+            --primary-dark: #0f3c4f;
+            --primary-light: #2a7f9a;
+            --accent-color: #3a9fba;
+            --success-color: #28a745;
+            --text-dark: #1a1a1a;
+            --text-gray: #666;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --bg-gray: #f0f2f5;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.16);
+            --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.2);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 15px;
+            letter-spacing: 0.3px;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            background-color: var(--primary-color);
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .header-cta:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-cta::after {
+            display: none;
+        }
+
+        /* Floating CTA Button */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 999;
+            transition: var(--transition);
+            animation: floatingPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes floatingPulse {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .floating-cta:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .floating-cta svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 90px;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 20px;
+            background-color: var(--bg-white);
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        }
+
+        .about-section h1 {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 24px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .about-section p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-gray);
+            font-size: 19px;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        /* Glassmorphism Airplane Section */
+        .airplane-section {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            margin: 0;
+            background: linear-gradient(135deg, #1a5f7a 0%, #2a7f9a 50%, #3a9fba 100%);
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeInScale 1.2s 0.3s ease-out forwards;
+        }
+
+        .airplane-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+            animation: gradientShift 20s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, -20px); }
+        }
+
+        .airplane-image {
+            position: absolute;
+            width: 600px;
+            left: -600px;
+            height: auto;
+            z-index: 3;
+            pointer-events: none;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+            top: 50%;
+            transform: translate(-50%);
+            animation: flyAcross 25s linear infinite, floatPlane 4s ease-in-out infinite;
+        }
+
+        @keyframes flyAcross {
+            0% {
+                left: -600px;
+                transform: translate(0, -50%) rotate(-1deg);
+            }
+            100% {
+                left: 100%;
+                transform: translate(0%, -50%) rotate(0deg);
+            }
+        }
+        @keyframes floatPlane {
+            0%, 100% {
+                top: 50%;
+            }
+            25% {
+                top: 48%;
+            }
+            75% {
+                top: 52%;
+            }
+        }
+
+        @keyframes fadeInScale {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+        }
+
+        .airplane-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 100px;
+            opacity: 0.8;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+            will-change: transform;
+            right: 0;
+            left: auto;
+            animation: drift linear infinite;
+            transform: translateX(100%);
+        }
+
+        /* Cloud elements with shadows */
+
+        .cloud3 {
+            width: 120px;
+            height: 45px;
+            top: 35%;
+            animation: drift 30s linear infinite ;
+            animation-delay: -2s;
+            z-index: 2;
+            left: auto;
+            transform: translateX(100%);
+
+        }
+
+        .cloud3::before {
+            width: 70px;
+            height: 55px;
+            top: -25px;
+            left: 20px;
+        }
+
+        .cloud3::after {
+            width: 80px;
+            height: 45px;
+            top: -20px;
+            right: 15px;
+        }
+
+        .cloud4 {
+            width: 90px;
+            height: 38px;
+            top: 45%;
+            animation: drift 32s linear infinite;
+            z-index: 5;
+            animation-delay: -10s;
+            left: auto;
+            transform: translateX(100%);
+        }
+
+        .cloud4::before {
+            width: 55px;
+            height: 48px;
+            top: -22px;
+            left: 12px;
+        }
+
+        .cloud4::after {
+            width: 65px;
+            height: 38px;
+            top: -15px;
+            right: 12px;
+        }
+
+        .cloud5 {
+            width: 110px;
+            height: 42px;
+            bottom: 20%;
+            animation: drift 27s linear infinite ;
+            z-index: 2;
+            left: auto;
+            animation-delay: -6s;
+            transform: translateX(100%);
+
+        }
+
+        .cloud5::before {
+            width: 65px;
+            height: 52px;
+            top: -24px;
+            left: 18px;
+        }
+
+        .cloud5::after {
+            width: 70px;
+            height: 42px;
+            top: -18px;
+            right: 18px;
+        }
+
+                /* Add these new cloud styles */
+        .cloud6 {
+            width: 95px;
+            height: 32px;
+            top: 65%;
+            animation: drift 35s linear infinite;
+            z-index: 3;
+            animation-delay: -5s;
+            transform: translateX(100%);
+
+        }
+        .cloud6::before { width: 45px; height: 42px; top: -20px; left: 15px; }
+        .cloud6::after { width: 55px; height: 32px; top: -12px; right: 10px; }
+
+        .cloud7 {
+            width: 105px;
+            height: 38px;
+            bottom: 10%;
+            animation: drift 29s linear infinite;
+            z-index: 2;
+            animation-delay: -6s;
+            transform: translateX(100%);
+
+        }
+        .cloud7::before { width: 60px; height: 48px; top: -25px; left: 18px; }
+        .cloud7::after { width: 65px; height: 38px; top: -18px; right: 15px; }
+
+        .cloud8 {
+            width: 85px;
+            height: 28px;
+            top: 75%;
+            animation: drift 31s linear infinite;
+            z-index: 4;
+            animation-delay: -7s;
+            transform: translateX(100%);
+
+        }
+        .cloud8::before { width: 40px; height: 38px; top: -18px; left: 12px; }
+        .cloud8::after { width: 50px; height: 28px; top: -10px; right: 8px; }
+
+        .cloud9 {
+            width: 115px;
+            height: 42px;
+            top: 20%;
+            animation: drift 33s linear infinite;
+            z-index: 3;
+            animation-delay: -8s;
+            transform: translateX(100%);
+        }
+        .cloud9::before { width: 65px; height: 52px; top: -28px; left: 20px; }
+        .cloud9::after { width: 70px; height: 42px; top: -20px; right: 18px; }
+
+        .cloud10 {
+            width: 75px;
+            height: 25px;
+            bottom: 85%;
+            animation: drift 26s linear infinite;
+            z-index: 2;
+            animation-delay: -9s;
+            transform: translateX(100%);
+        }
+        .cloud10::before { width: 35px; height: 35px; top: -15px; left: 10px; }
+        .cloud10::after { width: 45px; height: 25px; top: -8px; right: 5px; }
+
+        .cloud11 {
+            width: 100px;
+            height: 35px;
+            top: 25%;
+            animation: drift 29s linear infinite;
+            z-index: 3;
+            animation-delay: -10s;
+            transform: translateX(100%);
+
+        }
+        .cloud11::before { width: 50px; height: 45px; top: -22px; left: 15px; }
+        .cloud11::after { width: 60px; height: 35px; top: -15px; right: 12px; }
+
+        .cloud12 {
+            width: 88px;
+            height: 30px;
+            top: 65%;
+            animation: drift 36s linear infinite;
+            z-index: 4;
+            animation-delay: -11s;
+            transform: translateX(100%);
+        }
+        .cloud12::before { width: 42px; height: 40px; top: -18px; left: 13px; }
+        .cloud12::after { width: 52px; height: 30px; top: -12px; right: 10px; }
+
+        .cloud13 {
+            width: 110px;
+            height: 40px;
+            bottom: 15%;
+            animation: drift 26s linear infinite;
+            z-index: 3;
+            animation-delay: -12s;
+            transform: translateX(100%);
+        }
+        .cloud13::before { width: 60px; height: 50px; top: -25px; left: 17px; }
+        .cloud13::after { width: 70px; height: 40px; top: -18px; right: 16px; }
+
+        .cloud14 {
+            width: 92px;
+            height: 33px;
+            top: 38%;
+            animation: drift 31s linear infinite;
+            z-index: 2;
+            animation-delay: -13s;
+            transform: translateX(100%);
+        }
+        .cloud14::before { width: 47px; height: 43px; top: -20px; left: 14px; }
+        .cloud14::after { width: 57px; height: 33px; top: -14px; right: 11px; }
+
+
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 100px;
+        }
+
+        .cloud1 {
+            width: 100px;
+            height: 40px;
+            top: 15%;
+            animation: drift 25s linear infinite;
+            z-index: 4;
+            left: auto;
+            transform: translateX(100%);
+
+        }
+
+        .cloud1::before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 10px;
+        }
+
+        .cloud1::after {
+            width: 60px;
+            height: 40px;
+            top: -15px;
+            right: 10px;
+        }
+
+        .cloud2 {
+            width: 80px;
+            height: 35px;
+            bottom: 30%;
+            top: 25%;
+            animation: drift 25s linear infinite;
+            z-index: 2;
+            left: auto;
+            animation-delay: -1s;
+            transform: translateX(100%);
+
+        }
+
+        .cloud2::before {
+            width: 60px;
+            height: 45px;
+            top: -20px;
+            left: 15px;
+        }
+
+        .cloud2::after {
+            width: 50px;
+            height: 35px;
+            top: -10px;
+            right: 15px;
+        }
+
+        @keyframes drift {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(calc(-100vw - 200px));
+            }
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 100px 20px;
+            background-color: var(--bg-light);
+            opacity: 0;
+            animation: fadeInUp 1s 0.2s ease-out forwards;
+        }
+
+        .services-section h2 {
+            font-size: 42px;
+            color: var(--primary-color);
+            margin-bottom: 50px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-align: center;
+        }
+
+        .service-timeline {
+            background-color: var(--bg-white);
+            padding: 80px 40px;
+            border-radius: var(--radius-xl);
+            position: relative;
+            margin-bottom: 60px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+            max-width: 300px;
+            opacity: 0;
+            animation: fadeInScale 0.8s ease-out forwards;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.8s; }
+
+        .timeline-item .number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--bg-white);
+            border: 3px solid var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 20px;
+            position: relative;
+            z-index: 3;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-item:hover .number {
+            background-color: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-item h3 {
+            font-size: 20px;
+            color: var(--text-dark);
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+
+        .timeline-item p {
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* Timeline connecting lines */
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+            z-index: 1;
+            opacity: 0.3;
+        }
+
+        /* Service Cards */
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .service-card {
+            background-color: var(--bg-white);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            transition: var(--transition);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            transform: translateY(-100%);
+            transition: var(--transition);
+        }
+
+        .service-card:hover::before {
+            transform: translateY(0);
+        }
+
+        .service-card:nth-child(1) { animation-delay: 1s; }
+        .service-card:nth-child(2) { animation-delay: 1.2s; }
+        .service-card:nth-child(3) { animation-delay: 1.4s; }
+
+        .timeline-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+        }
+
+        .timeline-item {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-card-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .service-card-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: white;
+            stroke-width: 2;
+        }
+
+        .service-card h3 {
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* Registration Form with Glassmorphism */
+        .registration-section {
+            padding: 100px 20px;
+            background-color: var(--bg-white);
+        }
+
+        .registration-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 700px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .registration-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 700px;
+            position: relative;
+        }
+
+        /* Left side - Info Panel */
+        .info-panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-panel::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+
+        .info-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            opacity: 0;
+            animation: slideInLeft 1s 0.3s ease-out forwards;
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+        }
+
+        .info-content h2 {
+            font-size: 48px;
+            margin-bottom: 24px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .info-content p {
+            font-size: 19px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 17px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .features-list li:nth-child(1) { animation-delay: 0.6s; }
+        .features-list li:nth-child(2) { animation-delay: 0.8s; }
+        .features-list li:nth-child(3) { animation-delay: 1s; }
+
+        .features-list li svg {
+            margin-right: 16px;
+            width: 24px;
+            height: 24px;
+            stroke: #4ade80;
+            stroke-width: 3;
+        }
+
+        /* Right side - Form Panel */
+        .form-panel {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .form-content {
+            opacity: 0;
+            animation: slideInRight 1s 0.5s ease-out forwards;
+        }
+
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+        }
+
+        .form-content h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .form-group {
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: 0.3px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid rgba(26, 95, 122, 0.2);
+            border-radius: var(--radius-md);
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.9);
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease-out;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Floating shapes */
+        .shape {
+            position: absolute;
+            opacity: 0.08;
+        }
+
+        .shape-1 {
+            top: 10%;
+            left: 10%;
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            bottom: 10%;
+            right: 10%;
+            width: 180px;
+            height: 180px;
+            background: white;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 80px 20px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light), var(--accent-color));
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-section h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .footer-contact {
+            line-height: 1.8;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .contact-item svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            stroke-width: 2;
+            margin-top: 2px;
+        }
+
+        .contact-info {
+            text-align: left;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 50px auto 0;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+        }
+
+        /* Success Message */
+        .success-message {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: white;
+            color: var(--success-color);
+            padding: 20px 30px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 9999;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .success-message svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--success-color);
+            stroke-width: 3;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            to {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .registration-container {
+                grid-template-columns: 1fr;
+            }
+
+            .airplane-image {
+                width: 400px;
+            }
+
+            .info-panel {
+                padding: 60px 40px;
+                min-height: auto;
+            }
+
+            .form-panel {
+                padding: 60px 40px;
+            }
+
+            .info-content h2 {
+                font-size: 36px;
+            }
+
+            .floating-cta {
+                bottom: 20px;
+                right: 20px;
+                padding: 14px 24px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .airplane-image {
+                width: 300px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            main {
+                margin-top: 140px;
+            }
+
+            .about-section h1 {
+                font-size: 36px;
+            }
+
+            .services-section h2 {
+                font-size: 32px;
+            }
+
+            .timeline-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .timeline-item {
+                max-width: 100%;
+            }
+
+            .timeline-item:not(:last-child)::after {
+                display: none;
+            }
+
+            .registration-wrapper {
+                margin: 40px auto;
+                border-radius: var(--radius-lg);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-item {
+                justify-content: center;
+            }
+
+            @media (max-width: 480px) {
+                .airplane-image {
+                    width: 250px;
+                }
+            }
+
+        }
+        /* Enhanced Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Mobile Navigation Overlay */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .header-content {
+                position: relative;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 320px;
+                height: 100vh;
+                background: white;
+                box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                z-index: 1000;
+                padding-top: 80px;
+                overflow-y: auto;
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+                gap: 10px;
+            }
+
+            nav a {
+                display: block;
+                width: 100%;
+                padding: 15px 20px;
+                font-size: 16px;
+                border-radius: var(--radius-sm);
+                transition: background-color 0.2s ease;
+            }
+
+            nav a:hover {
+                background-color: var(--bg-light);
+            }
+
+            nav a::after {
+                display: none !important;
+            }
+
+            .header-cta {
+                margin-top: 20px;
+                width: calc(100% - 40px);
+                text-align: center;
+                display: block !important;
+            }
+
+            /* Mobile overlay backdrop */
+            .mobile-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(0,0,0,0.5);
+                z-index: 999;
+            }
+
+            .mobile-overlay.active {
+                display: block;
+            }
+        }
+
+        /* Improved Mobile Typography */
+        @media (max-width: 480px) {
+            .about-section h1 {
+                font-size: 28px !important;
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
+
+            .about-section p {
+                font-size: 16px !important;
+                padding: 0 10px;
+            }
+
+            .services-section h2 {
+                font-size: 28px !important;
+                margin-bottom: 30px;
+            }
+
+            .service-card h3 {
+                font-size: 20px !important;
+            }
+
+            .service-card p {
+                font-size: 14px !important;
+            }
+
+            .info-content h2 {
+                font-size: 28px !important;
+            }
+
+            .info-content p {
+                font-size: 16px !important;
+            }
+
+            .form-content h2 {
+                font-size: 24px !important;
+                margin-bottom: 25px;
+            }
+
+            .service-content h1 {
+                font-size: 28px !important;
+            }
+
+            .service-content .lead-text {
+                font-size: 16px !important;
+            }
+        }
+
+        /* Mobile-Optimized Airplane Section */
+        @media (max-width: 768px) {
+            .airplane-section {
+                height: 300px !important;
+            }
+
+            .airplane-image {
+                width: 250px !important;
+                animation: none !important;
+                position: relative !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                top: 50% !important;
+                margin-top: -50px;
+            }
+
+            /* Reduce number of clouds on mobile */
+            .cloud6, .cloud7, .cloud8, .cloud9, .cloud10,
+            .cloud11, .cloud12, .cloud13, .cloud14 {
+                display: none !important;
+            }
+
+            .cloud {
+                animation-duration: 40s !important;
+            }
+        }
+
+        /* Mobile Timeline - Enhanced */
+        @media (max-width: 768px) {
+            .service-timeline {
+                padding: 40px 20px !important;
+            }
+
+            .timeline-container {
+                flex-direction: column !important;
+                gap: 30px;
+                position: relative;
+            }
+
+            .timeline-container::before {
+                content: '';
+                position: absolute;
+                left: 39px;
+                top: 30px;
+                bottom: 30px;
+                width: 2px;
+                background: var(--primary-color);
+                opacity: 0.2;
+                z-index: 0;
+            }
+
+            .timeline-item {
+                max-width: 100% !important;
+                padding: 20px !important;
+                background: white;
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-sm);
+                position: relative;
+                margin-left: 20px;
+            }
+
+            .timeline-item:not(:last-child)::after {
+                display: none !important;
+            }
+
+            .timeline-item .number {
+                position: absolute;
+                left: -40px;
+                top: 20px;
+                z-index: 2;
+                background: white !important;
+            }
+        }
+
+        /* Mobile Service Cards */
+        @media (max-width: 480px) {
+            .service-cards {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+                padding: 0 10px;
+            }
+
+            .service-card {
+                padding: 30px 20px !important;
+            }
+        }
+
+        /* Mobile Registration Form */
+        @media (max-width: 768px) {
+            .registration-wrapper {
+                margin: 20px !important;
+                border-radius: var(--radius-md);
+            }
+
+            .registration-container {
+                grid-template-columns: 1fr !important;
+            }
+
+            .info-panel {
+                padding: 40px 20px !important;
+                min-height: auto;
+            }
+
+            .form-panel {
+                padding: 40px 20px !important;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 16px !important; /* Prevents zoom on iOS */
+            }
+
+            .submit-btn {
+                padding: 18px !important;
+                font-size: 16px !important;
+            }
+
+            .features-list li {
+                font-size: 15px !important;
+            }
+
+            .shape-1, .shape-2 {
+                display: none;
+            }
+        }
+
+        /* Mobile Floating CTA */
+        @media (max-width: 480px) {
+            .floating-cta {
+                bottom: 15px !important;
+                right: 15px !important;
+                padding: 12px 20px !important;
+                font-size: 14px !important;
+            }
+
+            .floating-cta svg {
+                width: 18px !important;
+                height: 18px !important;
+            }
+        }
+
+        /* Mobile Footer */
+        @media (max-width: 768px) {
+            footer {
+                padding: 50px 20px 30px !important;
+            }
+
+            .footer-section h3 {
+                font-size: 24px !important;
+                margin-bottom: 25px;
+            }
+
+            .contact-item {
+                flex-direction: column !important;
+                text-align: center;
+                align-items: center;
+            }
+
+            .contact-info {
+                text-align: center !important;
+            }
+
+            .footer-bottom {
+                margin-top: 30px;
+                padding-top: 30px;
+                font-size: 14px !important;
+            }
+        }
+
+        /* Touch-friendly improvements */
+        @media (max-width: 768px) {
+            /* Larger touch targets */
+            button,
+            .header-cta,
+            .floating-cta,
+            .submit-btn,
+            nav a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Better spacing for form elements */
+            .form-group {
+                margin-bottom: 20px !important;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 14px !important;
+                min-height: 44px;
+            }
+        }
+
+        /* Landscape mobile adjustments */
+        @media (max-width: 812px) and (orientation: landscape) {
+            .service-hero {
+                min-height: auto !important;
+                padding: 60px 20px 40px !important;
+            }
+
+            .airplane-section {
+                height: 250px !important;
+            }
+
+            .registration-wrapper {
+                min-height: auto !important;
+            }
+
+            main {
+                margin-top: 70px !important;
+            }
+        }
+
+        /* Very small devices */
+        @media (max-width: 360px) {
+            .logo-text {
+                font-size: 24px !important;
+            }
+
+            .logo img {
+                height: 40px !important;
+            }
+
+            .about-section h1 {
+                font-size: 24px !important;
+            }
+
+            .service-content h1 {
+                font-size: 24px !important;
+            }
+
+            .floating-cta {
+                padding: 10px 16px !important;
+                font-size: 13px !important;
+            }
+        }
+
+        /* Service pages specific mobile styles */
+        @media (max-width: 768px) {
+            .service-container {
+                grid-template-columns: 1fr !important;
+                gap: 40px !important;
+            }
+
+            .service-image-wrapper {
+                max-width: 100% !important;
+                padding-bottom: 100% !important;
+            }
+
+            .service-item h3 {
+                font-size: 18px !important;
+            }
+
+            .service-item-content {
+                margin-left: 0 !important;
+                margin-top: 10px;
+            }
+
+            .service-number {
+                width: 28px !important;
+                height: 28px !important;
+                font-size: 14px !important;
+            }
+
+            /* Three.js globe container for mobile */
+            .globe-container {
+                height: 300px !important;
+            }
+
+            .stats-row {
+                flex-wrap: wrap !important;
+                gap: 15px !important;
+            }
+
+            .stat-number {
+                font-size: 22px !important;
+            }
+
+            .stat-label {
+                font-size: 10px !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="Global-Line Logo">
+                <span class="logo-text">Global-Line</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#legal">Legal</a></li>
+                    <li><a href="#request" class="header-cta">Request Free Consultation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Floating CTA -->
+    <a href="#request" class="floating-cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+        </svg>
+        Get Started
+    </a>
+
+    <main>
+        <section id="about" class="about-section">
+            <h1>Premium Global Logistics Solutions</h1>
+            <p>Global-Line delivers streamlined air freight and customs clearance solutions worldwide. Based in Italy, with hubs in Gros Rimini and Centergross Bologna, we ensure rapid cargo consolidation and dispatch. Our tailored approach guarantees cost-effective shipping for all cargo types, backed by seamless handling of international certifications and door-to-warehouse pickup.</p>
+        </section>
+
+        <!-- Glassmorphism Airplane Section -->
+        <section class="airplane-section">
+            <div class="airplane-container">
+
+                <!-- Clouds -->
+                <div class="cloud cloud1"></div>
+                <div class="cloud cloud2"></div>
+                <div class="cloud cloud3"></div>
+                <div class="cloud cloud4"></div>
+                <div class="cloud cloud5"></div>
+                <div class="cloud cloud6"></div>
+                <div class="cloud cloud7"></div>
+                <div class="cloud cloud8"></div>
+                <div class="cloud cloud9"></div>
+                <div class="cloud cloud10"></div>
+                <div class="cloud cloud11"></div>
+                <div class="cloud cloud12"></div>
+                <div class="cloud cloud13"></div>
+                <div class="cloud cloud14"></div>
+
+
+                <img src="images/PLANE.png" alt="Global-Line Airplane" class="airplane-image">
+            </div>
+        </section>
+
+        <section id="services" class="services-section">
+    <h2>Our Services</h2>
+    <p style="text-align: center; color: #999; font-size: 15px; margin-top: -25px; margin-bottom: 45px; letter-spacing: 0.5px; text-transform: uppercase;">
+        Click each step to discover how we streamline your logistics
+    </p>
+
+    <div class="service-timeline">
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <a href="manufacturer.html" class="timeline-link">
+                    <div class="number">1</div>
+                    <h3>Sourcing</h3>
+                    <p>We handle EU manufacturing, compliance, and sourcing—so you ship worry-free, every time.</p>
+                    <span style="color: var(--primary-color); font-size: 13px; font-weight: 600; margin-top: 12px; display: inline-block; opacity: 0.8;">
+                        Explore Details →
+                    </span>
+                </a>
+            </div>
+            <div class="timeline-item">
+                <a href="logistics.html" class="timeline-link">
+                    <div class="number">2</div>
+                    <h3>Logistics</h3>
+                    <p>We navigate regulations, optimize routes, and keep you informed—so you never lose sleep over delays.</p>
+                    <span style="color: var(--primary-color); font-size: 13px; font-weight: 600; margin-top: 12px; display: inline-block; opacity: 0.8;">
+                        Explore Details →
+                    </span>
+                </a>
+            </div>
+            <div class="timeline-item">
+                <a href="delivery.html" class="timeline-link">
+                    <div class="number">3</div>
+                    <h3>Delivery</h3>
+                    <p>Your cargo doesn't stop at the airport—we guarantee it reaches its destination safely and on time.</p>
+                    <span style="color: var(--primary-color); font-size: 13px; font-weight: 600; margin-top: 12px; display: inline-block; opacity: 0.8;">
+                        Explore Details →
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+            <div class="service-cards">
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                            <path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/>
+                        </svg>
+                    </div>
+                    <h3>Air Transport</h3>
+                    <p>Premium air freight services with complete goods movement organization from Italy, Europe, Switzerland, USA, and Japan. Home delivery in Kazakhstan and neighboring countries.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                            <path d="M9 12l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3>Tailored Service</h3>
+                    <p>Pre-processing, error checks, and submission for compliance. Need weekend delivery? Temperature-controlled transport? We adapt to your requirements.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>360° Service</h3>
+                    <p>Complete logistics solutions including customs clearance, documentation, warehousing, and final delivery. Professional support available 24/7.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="request" class="registration-section">
+            <div class="registration-wrapper">
+                <div class="registration-container">
+                    <div class="info-panel">
+                        <div class="shape shape-1"></div>
+                        <div class="shape shape-2"></div>
+                        <div class="info-content">
+                            <h2>Start Your Global Logistics Journey</h2>
+                            <p>Join hundreds of businesses who trust Global-Line for their international shipping needs.</p>
+                            <ul class="features-list">
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="none">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                    Bespoke solutions
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="none">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                    Certified customs clearance
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24" fill="none">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                    24/7 professional support
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-panel">
+                        <div class="form-content">
+                            <h2>Request Free Consultation</h2>
+                            <form id="consultationForm">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name</label>
+                                    <input type="text" id="fullName" name="fullName" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="company">Company Name (Optional)</label>
+                                    <input type="text" id="company" name="company">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="service">Service Required</label>
+                                    <select id="service" name="service" required>
+                                        <option value="">Select a service</option>
+                                        <option value="air-transport">Air Transport</option>
+                                        <option value="logistics">Full Logistics</option>
+                                        <option value="customs">Customs Clearance</option>
+                                        <option value="warehousing">Warehousing</option>
+                                        <option value="consultation">General Consultation</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" placeholder="Please describe your logistics needs..."></textarea>
+                                </div>
+
+                                <button type="submit" class="submit-btn">Request Free Consultation</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="footer-contact">
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        <div class="contact-info">
+                            Via Coriano, 58 Blocco 92/G<br>
+                            Gros Rimini 47924 RIMINI
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <path d="M22 6l-10 7L2 6"/>
+                        </svg>
+                        <div class="contact-info">
+                            <a href="mailto:ivanmosur@webster.edu">cargo@global-line.it</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                            <path d="M12 8v8M8 12h8"/>
+                        </svg>
+                        <div class="contact-info">
+                            P.IVA 04736580400
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Global-Line. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.timeline-item, .service-card').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+
+        // Form submission handling with email client integration and fallback
+document.getElementById('consultationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Get form data
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+
+    // Enhanced animation
+    const button = this.querySelector('.submit-btn');
+    const originalText = button.textContent;
+
+    // Add loading animation
+    button.innerHTML = '<span style="display: inline-block; animation: spin 1s linear infinite;">⟳</span> Processing...';
+    button.disabled = true;
+    button.style.transform = 'scale(0.98)';
+
+    // Prepare email content
+    const recipient = 'ivanmosur@webster.edu'; // YOUR ACTUAL EMAIL HERE
+    const subject = `New Consultation Request from ${data.fullName}`;
+
+    // Convert service value to readable text
+    const serviceTexts = {
+        'air-transport': 'Air Transport',
+        'logistics': 'Full Logistics',
+        'customs': 'Customs Clearance',
+        'warehousing': 'Warehousing',
+        'consultation': 'General Consultation'
+    };
+
+    // Build email body for display (plain text)
+    let emailBodyPlain = `New consultation request from Global-Line website:\n\n`;
+    emailBodyPlain += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    emailBodyPlain += `CONTACT INFORMATION\n`;
+    emailBodyPlain += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    emailBodyPlain += `Name: ${data.fullName}\n`;
+    emailBodyPlain += `Email: ${data.email}\n`;
+    emailBodyPlain += `Phone: ${data.phone}\n`;
+    if (data.company) {
+        emailBodyPlain += `Company: ${data.company}\n`;
+    }
+    emailBodyPlain += `\n`;
+    emailBodyPlain += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    emailBodyPlain += `SERVICE REQUEST\n`;
+    emailBodyPlain += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    emailBodyPlain += `Service Required: ${serviceTexts[data.service] || data.service}\n`;
+    if (data.message) {
+        emailBodyPlain += `\nMessage:\n${data.message}\n`;
+    }
+    emailBodyPlain += `\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+    emailBodyPlain += `Sent from: Global-Line Contact Form\n`;
+    emailBodyPlain += `Date: ${new Date().toLocaleString()}\n`;
+
+    // Build email body for mailto (URL encoded)
+    let emailBodyEncoded = emailBodyPlain.replace(/\n/g, '%0D%0A');
+
+    // Create mailto link
+    const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${emailBodyEncoded}`;
+
+    // Simulate processing time then try to open email client
+    setTimeout(() => {
+        button.innerHTML = '✓ Processing...';
+        button.style.background = 'linear-gradient(135deg, #28a745 0%, #34ce57 100%)';
+        button.style.transform = 'scale(1)';
+
+        // Try to open mailto link
+        window.location.href = mailtoLink;
+
+        // Show modal with email information as fallback after a short delay
+        setTimeout(() => {
+            // Create modal backdrop
+            const backdrop = document.createElement('div');
+            backdrop.id = 'emailModalBackdrop';
+            backdrop.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.6);
+                backdrop-filter: blur(5px);
+                z-index: 9999;
+                animation: fadeIn 0.3s ease-out;
+            `;
+
+            // Create modal
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: white;
+                padding: 40px;
+                border-radius: 16px;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                z-index: 10000;
+                max-width: 600px;
+                width: 90%;
+                max-height: 80vh;
+                overflow-y: auto;
+                animation: slideUp 0.3s ease-out;
+            `;
+
+            modal.innerHTML = `
+    <div style="text-align: center; margin-bottom: 30px;">
+        <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
+            <svg viewBox="0 0 24 24" fill="none" style="width: 30px; height: 30px; stroke: white; stroke-width: 2;">
+                <path d="M12 9v4m0 4h.01M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9z"/>
+            </svg>
+        </div>
+        <h2 style="color: #1a5f7a; margin-bottom: 10px; font-size: 26px;">Email Client Not Configured</h2>
+        <p style="color: #666; font-size: 16px; margin-bottom: 0;">No default email client detected. Please use one of these methods to send your request:</p>
+    </div>
+
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; margin-bottom: 25px;">
+                    <h3 style="color: #1a1a1a; margin-bottom: 20px; font-size: 18px;">Option 1: Email Client</h3>
+                    <p style="color: #666; margin-bottom: 15px;">If your email client didn't open automatically, click the button below:</p>
+                    <a href="${mailtoLink}"
+                       style="display: inline-block; background: #1a5f7a; color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600;">
+                        Open Email Client
+                    </a>
+                </div>
+
+                <div style="background: #f8f9fa; padding: 25px; border-radius: 12px; margin-bottom: 25px;">
+                    <h3 style="color: #1a1a1a; margin-bottom: 20px; font-size: 18px;">Option 2: Copy Email Details</h3>
+                    <p style="color: #666; margin-bottom: 15px;">Manually send an email with these details:</p>
+
+                    <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #e0e0e0;">
+                        <strong style="color: #1a1a1a;">To:</strong><br>
+                        <code style="color: #1a5f7a; font-size: 14px;">${recipient}</code>
+                    </div>
+
+                    <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #e0e0e0;">
+                        <strong style="color: #1a1a1a;">Subject:</strong><br>
+                        <code style="color: #1a1a1a; font-size: 14px;">${subject}</code>
+                    </div>
+
+                    <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid #e0e0e0;">
+                        <strong style="color: #1a1a1a;">Message:</strong><br>
+                        <pre style="white-space: pre-wrap; font-family: 'Inter', monospace; font-size: 12px; color: #666; line-height: 1.6; margin: 10px 0 0 0; max-height: 200px; overflow-y: auto;">${emailBodyPlain}</pre>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <button onclick="document.getElementById('emailModalBackdrop').remove(); this.parentElement.parentElement.remove();"
+                            style="background: #1a5f7a; color: white; border: none; padding: 14px 40px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600;">
+                        Close
+                    </button>
+                </div>
+            `;
+
+            // Add animation styles if not already present
+            if (!document.getElementById('modalAnimations')) {
+                const animStyles = document.createElement('style');
+                animStyles.id = 'modalAnimations';
+                animStyles.textContent = `
+                    @keyframes fadeIn {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                    }
+                    @keyframes slideUp {
+                        from {
+                            opacity: 0;
+                            transform: translate(-50%, -40%);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+                `;
+                document.head.appendChild(animStyles);
+            }
+
+            backdrop.onclick = function() {
+                modal.remove();
+                this.remove();
+            };
+
+            document.body.appendChild(backdrop);
+            document.body.appendChild(modal);
+
+            // Reset form
+            const form = document.getElementById('consultationForm');
+            form.style.opacity = '0';
+            setTimeout(() => {
+                form.reset();
+                form.style.opacity = '1';
+                button.textContent = originalText;
+                button.style.background = 'linear-gradient(135deg, #1a5f7a 0%, #2a7f9a 100%)';
+                button.disabled = false;
+            }, 300);
+        }, 1500);
+    }, 1000);
+});
+        // Add CSS animations dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes spin {
+                to { transform: rotate(360deg); }
+            }
+            @keyframes ripple {
+                to {
+                    width: 400px;
+                    height: 400px;
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 100;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for floating shapes
+        let ticking = false;
+        function updateParallax(e) {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const shapes = document.querySelectorAll('.shape');
+                    const x = (e.clientX / window.innerWidth - 0.5) * 2;
+                    const y = (e.clientY / window.innerHeight - 0.5) * 2;
+
+                    shapes.forEach((shape, index) => {
+                        const speed = (index + 1) * 15;
+                        shape.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+                    });
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        document.addEventListener('mousemove', updateParallax);
+
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('header');
+
+            if (currentScroll > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = 'var(--shadow-md)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'var(--shadow-sm)';
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Mobile Menu Setup
+function setupMobileMenu() {
+    // Create mobile menu button
+    const mobileMenuToggle = document.createElement('button');
+    mobileMenuToggle.className = 'mobile-menu-toggle';
+    mobileMenuToggle.innerHTML = '<span></span><span></span><span></span>';
+    mobileMenuToggle.setAttribute('aria-label', 'Toggle menu');
+
+    // Create mobile overlay
+    const mobileOverlay = document.createElement('div');
+    mobileOverlay.className = 'mobile-overlay';
+
+    // Get header and nav elements
+    const headerContent = document.querySelector('.header-content');
+    const nav = document.querySelector('nav');
+
+    // Only add mobile elements if needed
+    if (headerContent && nav) {
+        // Add toggle button to header
+        headerContent.appendChild(mobileMenuToggle);
+        // Add overlay to body
+        document.body.appendChild(mobileOverlay);
+
+        // Toggle menu function
+        function toggleMenu() {
+            const isActive = nav.classList.contains('active');
+
+            if (isActive) {
+                // Close menu
+                mobileMenuToggle.classList.remove('active');
+                nav.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            } else {
+                // Open menu
+                mobileMenuToggle.classList.add('active');
+                nav.classList.add('active');
+                mobileOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Toggle menu when clicking button
+        mobileMenuToggle.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking overlay
+        mobileOverlay.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a nav link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (nav.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Handle window resize
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                if (window.innerWidth > 768 && nav.classList.contains('active')) {
+                    toggleMenu();
+                }
+            }, 250);
+        });
+    }
+}
+
+// Initialize mobile menu when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupMobileMenu);
+} else {
+    setupMobileMenu();
+}
+
+    </script>
+
+
+</body>
+</html>
