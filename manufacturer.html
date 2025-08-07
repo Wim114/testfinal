@@ -178,6 +178,147 @@
             height: 20px;
         }
 
+        /* Mobile Factory Animation Centering */
+        /* Mobile Factory Animation Centering */
+        @media (max-width: 768px) {
+            /* Fix container spacing */
+            .service-hero {
+                padding: 80px 15px 60px !important;
+            }
+        
+            .service-container {
+                padding: 0 10px !important;
+            }
+        
+            /* Fix animation container */
+            .service-image-wrapper {
+                max-width: 100% !important;
+                padding-bottom: 120% !important;
+                margin: 0 auto !important;
+                position: relative !important;
+            }
+        
+            .factory-modern {
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding: 20px !important;
+                box-sizing: border-box !important;
+            }
+        
+            .factory-icon {
+                width: 140px !important;
+                height: 140px !important;
+                margin-bottom: 25px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+        
+            .factory-icon svg {
+                width: 100% !important;
+                height: 100% !important;
+            }
+        
+            .production-line {
+                width: 180px !important;
+                height: 3px !important;
+                margin: 0 auto 25px !important;
+            }
+        
+            .data-points {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                gap: 15px !important;
+                justify-content: center !important;
+                align-items: center !important;
+                width: 100% !important;
+                padding: 0 10px !important;
+            }
+        
+            .data-point {
+                flex: 1 !important;
+                min-width: 0 !important;
+                max-width: 90px !important;
+                text-align: center !important;
+            }
+        
+            .data-value {
+                font-size: 22px !important;
+                display: block !important;
+                margin-bottom: 4px !important;
+            }
+        
+            .data-label {
+                font-size: 10px !important;
+                line-height: 1.2 !important;
+                display: block !important;
+            }
+        
+            /* Fix text spacing similar to logistics */
+            .service-content {
+                padding: 0 !important;
+            }
+        
+            .service-content h1 {
+                font-size: 32px !important;
+                padding: 0 5px !important;
+            }
+        
+            .service-content .lead-text {
+                font-size: 16px !important;
+                padding: 0 5px !important;
+            }
+        
+            .service-item-content {
+                margin-left: 34px !important;
+                padding-right: 5px !important;
+            }
+        }
+        
+        /* Small devices */
+        @media (max-width: 480px) {
+            .factory-icon {
+                width: 120px !important;
+                height: 120px !important;
+            }
+        
+            .production-line {
+                width: 150px !important;
+            }
+        
+            .data-points {
+                gap: 10px !important;
+            }
+        
+            .data-value {
+                font-size: 20px !important;
+            }
+        
+            .data-label {
+                font-size: 9px !important;
+            }
+        }
+        
+        /* Very small devices */
+        @media (max-width: 360px) {
+            .factory-icon {
+                width: 100px !important;
+                height: 100px !important;
+            }
+        
+            .data-value {
+                font-size: 18px !important;
+            }
+        }
+        
         /* Main Content */
         main {
             margin-top: 90px;
@@ -1933,3 +2074,4 @@
 </body>
 
 </html>
+
