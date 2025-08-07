@@ -142,6 +142,78 @@
             display: none;
         }
 
+                /* Mobile Animation Centering Fixes */
+        @media (max-width: 768px) {
+            .service-image-wrapper {
+                max-width: 100% !important;
+                padding-bottom: 120% !important; /* Adjust aspect ratio for mobile */
+                margin: 0 auto !important;
+            }
+        
+            .animation-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                padding: 10px !important;
+                box-sizing: border-box !important;
+            }
+        
+            .main-svg {
+                width: 90% !important;
+                height: auto !important;
+                max-width: 320px !important;
+                display: block !important;
+                margin: 0 auto !important;
+            }
+        
+            /* Adjust SVG viewBox for better mobile display */
+            .main-svg {
+                viewBox: "50 50 400 500" !important;
+            }
+        
+            /* Center the pen animation */
+            .pen {
+                transform-origin: center !important;
+            }
+        
+            /* Ensure sheets are centered */
+            .sheet {
+                transform-origin: center !important;
+            }
+        }
+        
+        /* Small devices specific centering */
+        @media (max-width: 480px) {
+            .service-image-wrapper {
+                padding-bottom: 140% !important; /* More square aspect for small screens */
+            }
+        
+            .main-svg {
+                width: 85% !important;
+                max-width: 280px !important;
+            }
+        }
+        
+        /* Fix service content spacing */
+        @media (max-width: 768px) {
+            .service-hero {
+                padding: 80px 15px 60px !important;
+            }
+        
+            .service-container {
+                gap: 30px !important;
+            }
+        
+            .service-content {
+                padding: 0 10px !important;
+            }
+        }
+        
         /* Floating CTA Button */
         .floating-cta {
             position: fixed;
@@ -1530,3 +1602,4 @@
     </script>
 </body>
 </html>
+
