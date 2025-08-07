@@ -265,6 +265,145 @@
             font-size: 15px;
         }
 
+        /* Mobile Text Spacing & Globe Container Fixes */
+@media (max-width: 768px) {
+    /* Fix text spacing issues */
+    .service-hero {
+        padding: 80px 20px 60px !important;
+    }
+
+    .service-container {
+        max-width: 100% !important;
+        padding: 0 15px !important;
+        box-sizing: border-box !important;
+    }
+
+    .service-content {
+        padding: 0 !important;
+        max-width: 100% !important;
+    }
+
+    .service-content h1 {
+        font-size: 32px !important;
+        line-height: 1.3 !important;
+        margin-bottom: 20px !important;
+        padding: 0 5px !important;
+    }
+
+    .service-content .lead-text {
+        font-size: 16px !important;
+        line-height: 1.6 !important;
+        padding: 0 5px !important;
+        margin-bottom: 30px !important;
+    }
+
+    /* Fix service items spacing */
+    .service-item {
+        margin-bottom: 25px !important;
+        padding: 0 5px !important;
+    }
+
+    .service-item h3 {
+        font-size: 18px !important;
+        gap: 8px !important;
+        align-items: flex-start !important;
+        line-height: 1.4 !important;
+    }
+
+    .service-number {
+        width: 26px !important;
+        height: 26px !important;
+        font-size: 14px !important;
+        flex-shrink: 0 !important;
+        margin-top: 2px !important;
+    }
+
+    .service-item-content {
+        margin-left: 34px !important;
+        padding-right: 5px !important;
+    }
+
+    .service-item ul {
+        padding-left: 0 !important;
+    }
+
+    .service-item ul li {
+        padding-left: 20px !important;
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* Fix globe container */
+    .service-image-wrapper {
+        padding-bottom: 120% !important;
+    }
+
+    .logistics-globe {
+        padding: 15px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+
+    .globe-container {
+        height: 60% !important;
+        min-height: 250px !important;
+        max-height: 300px !important;
+    }
+
+    .stats-row {
+        margin-top: 20px !important;
+        padding: 0 10px !important;
+        justify-content: space-around !important;
+    }
+
+    .stat-item {
+        flex: 0 1 auto !important;
+        min-width: 70px !important;
+        padding: 0 5px !important;
+    }
+
+    .stat-number {
+        font-size: 22px !important;
+    }
+
+    .stat-label {
+        font-size: 11px !important;
+    }
+}
+
+    /* Very small devices */
+@media (max-width: 480px) {
+        .service-content h1 {
+            font-size: 28px !important;
+        }
+    
+        .service-content .lead-text {
+            font-size: 15px !important;
+        }
+    
+        .service-item h3 {
+            font-size: 17px !important;
+        }
+    
+        .service-item ul li {
+            font-size: 13px !important;
+        }
+    
+        .globe-container {
+            min-height: 200px !important;
+        }
+    
+        .stat-number {
+            font-size: 20px !important;
+        }
+    
+        .stat-label {
+            font-size: 10px !important;
+        }
+    }
+        
         /* Service Hero Section */
         .service-hero {
             padding: 120px 20px 80px;
@@ -1410,3 +1549,4 @@ if (document.readyState === 'loading') {
 </body>
 
 </html>
+
