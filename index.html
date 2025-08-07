@@ -226,136 +226,6 @@
             font-weight: 400;
         }
 
-                /* Mobile Airplane & Cloud Fixes */
-        @media (max-width: 768px) {
-            .airplane-section {
-                height: 300px !important;
-                position: relative;
-                overflow: hidden;
-                width: 100%;
-            }
-        
-            .airplane-container {
-                position: relative;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-            }
-        
-            /* Fix airplane to fly RIGHT to LEFT on mobile */
-            .airplane-image {
-                position: absolute !important;
-                width: 180px !important;
-                height: auto !important;
-                top: 50% !important;
-                z-index: 10;
-                /* Start from right side */
-                animation: mobileAirplaneFly 18s linear infinite !important;
-            }
-        
-            @keyframes mobileAirplaneFly {
-                0% {
-                    right: -200px;
-                    left: auto;
-                    transform: translateY(-50%) rotate(-2deg);
-                }
-                100% {
-                    right: auto;
-                    left: -200px;
-                    transform: translateY(-50%) rotate(0deg);
-                }
-            }
-        
-            /* Fix cloud stacking - position them at different heights */
-            .cloud {
-                position: absolute !important;
-                background: rgba(255, 255, 255, 0.5) !important;
-                border-radius: 100px !important;
-                opacity: 0.6 !important;
-            }
-        
-            /* Cloud animation RIGHT to LEFT */
-            @keyframes mobileClouds {
-                0% {
-                    right: auto;
-                    left: -150px;
-                }
-                100% {
-                    right: -150px;
-                    left: auto;
-                }
-            }
-        
-            /* Position each cloud at different heights to prevent stacking */
-            .cloud1 {
-                width: 70px !important;
-                height: 30px !important;
-                top: 10% !important;
-                animation: mobileClouds 20s linear infinite !important;
-                z-index: 5;
-            }
-        
-            .cloud2 {
-                width: 60px !important;
-                height: 25px !important;
-                top: 25% !important;
-                animation: mobileClouds 24s linear infinite !important;
-                animation-delay: -3s !important;
-                z-index: 4;
-            }
-        
-            .cloud3 {
-                width: 80px !important;
-                height: 35px !important;
-                top: 40% !important;
-                animation: mobileClouds 22s linear infinite !important;
-                animation-delay: -7s !important;
-                z-index: 3;
-            }
-        
-            .cloud4 {
-                width: 65px !important;
-                height: 28px !important;
-                top: 60% !important;
-                animation: mobileClouds 26s linear infinite !important;
-                animation-delay: -10s !important;
-                z-index: 4;
-            }
-        
-            .cloud5 {
-                width: 75px !important;
-                height: 32px !important;
-                top: 80% !important;
-                animation: mobileClouds 23s linear infinite !important;
-                animation-delay: -5s !important;
-                z-index: 3;
-            }
-        
-            /* Hide extra clouds */
-            .cloud6, .cloud7, .cloud8, .cloud9, .cloud10,
-            .cloud11, .cloud12, .cloud13, .cloud14 {
-                display: none !important;
-            }
-        
-            /* Remove cloud pseudo-elements on mobile */
-            .cloud::before,
-            .cloud::after {
-                display: none !important;
-            }
-        }
-        
-        /* Very small devices */
-        @media (max-width: 480px) {
-            .airplane-image {
-                width: 150px !important;
-            }
-            
-            .airplane-section {
-                height: 250px !important;
-            }
-        }
-
-        
         /* Glassmorphism Airplane Section */
         .airplane-section {
             position: relative;
@@ -1557,27 +1427,54 @@
         /* Mobile-Optimized Airplane Section */
         @media (max-width: 768px) {
             .airplane-section {
-                height: 300px !important;
+                height: 250px !important;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .airplane-container {
+                position: relative;
+                width: 100%;
+                height: 100%;
             }
 
             .airplane-image {
-                width: 250px !important;
-                animation: none !important;
-                position: relative !important;
-                left: 50% !important;
-                transform: translateX(-50%) !important;
+                width: 180px !important;
+                position: absolute !important;
                 top: 50% !important;
-                margin-top: -50px;
+                transform: translateY(-50%) !important;
+                animation: mobileFlyCross 15s linear infinite !important;
+                filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
             }
 
-            /* Reduce number of clouds on mobile */
+            @keyframes mobileFlyCross {
+                0% {
+                    left: -200px;
+                }
+                100% {
+                    left: calc(100% + 200px);
+                }
+            }
+
+            /* Simplify clouds on mobile */
+            .cloud {
+                animation: mobileDrift 20s linear infinite !important;
+                opacity: 0.6 !important;
+            }
+
+            @keyframes mobileDrift {
+                0% {
+                    transform: translateX(100vw);
+                }
+                100% {
+                    transform: translateX(-200px);
+                }
+            }
+
+            /* Hide extra clouds on small screens */
             .cloud6, .cloud7, .cloud8, .cloud9, .cloud10,
             .cloud11, .cloud12, .cloud13, .cloud14 {
                 display: none !important;
-            }
-
-            .cloud {
-                animation-duration: 40s !important;
             }
         }
 
@@ -2946,4 +2843,3 @@ if (document.readyState === 'loading') {
 </body>
 
 </html>
-
