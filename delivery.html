@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">    <title>Global-Line - Logistic Services</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Global-Line - Logistic Services</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -142,14 +143,14 @@
             display: none;
         }
 
-                /* Mobile Animation Centering Fixes */
+        /* Mobile Animation Centering Fixes - UPDATED */
         @media (max-width: 768px) {
             .service-image-wrapper {
                 max-width: 100% !important;
-                padding-bottom: 120% !important; /* Adjust aspect ratio for mobile */
+                padding-bottom: 120% !important;
                 margin: 0 auto !important;
             }
-        
+
             .animation-container {
                 position: absolute;
                 top: 0;
@@ -162,7 +163,7 @@
                 padding: 10px !important;
                 box-sizing: border-box !important;
             }
-        
+
             .main-svg {
                 width: 90% !important;
                 height: auto !important;
@@ -170,50 +171,60 @@
                 display: block !important;
                 margin: 0 auto !important;
             }
-        
-            /* Adjust SVG viewBox for better mobile display */
-            .main-svg {
-                viewBox: "50 50 400 500" !important;
-            }
-        
-            /* Center the pen animation */
+
+            /* Scale down the pen for mobile */
             .pen {
                 transform-origin: center !important;
+                transform: scale(0.8) !important; /* Scale down pen size */
             }
-        
+
             /* Ensure sheets are centered */
             .sheet {
                 transform-origin: center !important;
             }
+
+            /* Override pen positions for mobile */
+            .pen-mobile-position {
+                transform: scale(0.8) translate(180px, 150px) rotate(-90deg) !important;
+            }
         }
-        
+
         /* Small devices specific centering */
         @media (max-width: 480px) {
             .service-image-wrapper {
-                padding-bottom: 140% !important; /* More square aspect for small screens */
+                padding-bottom: 140% !important;
             }
-        
+
             .main-svg {
                 width: 85% !important;
                 max-width: 280px !important;
             }
+
+            /* Further scale down for very small screens */
+            .pen {
+                transform: scale(0.7) !important;
+            }
+
+            .pen-mobile-position {
+                transform: scale(0.7) translate(160px, 140px) rotate(-90deg) !important;
+            }
         }
-        
+
         /* Fix service content spacing */
         @media (max-width: 768px) {
             .service-hero {
                 padding: 80px 15px 60px !important;
             }
-        
+
             .service-container {
                 gap: 30px !important;
             }
-        
+
             .service-content {
                 padding: 0 10px !important;
             }
         }
-        
+
         /* Floating CTA Button */
         .floating-cta {
             position: fixed;
@@ -701,358 +712,22 @@
             }
         }
 
-        /* Improved Mobile Typography */
-        @media (max-width: 480px) {
-            .about-section h1 {
-                font-size: 28px !important;
-                line-height: 1.3;
-                margin-bottom: 20px;
-            }
-
-            .about-section p {
-                font-size: 16px !important;
-                padding: 0 10px;
-            }
-
-            .services-section h2 {
-                font-size: 28px !important;
-                margin-bottom: 30px;
-            }
-
-            .service-card h3 {
-                font-size: 20px !important;
-            }
-
-            .service-card p {
-                font-size: 14px !important;
-            }
-
-            .info-content h2 {
-                font-size: 28px !important;
-            }
-
-            .info-content p {
-                font-size: 16px !important;
-            }
-
-            .form-content h2 {
-                font-size: 24px !important;
-                margin-bottom: 25px;
-            }
-
-            .service-content h1 {
-                font-size: 28px !important;
-            }
-
-            .service-content .lead-text {
-                font-size: 16px !important;
-            }
-        }
-
-        /* Mobile-Optimized Airplane Section */
-        @media (max-width: 768px) {
-            .airplane-section {
-                height: 300px !important;
-            }
-
-            .airplane-image {
-                width: 250px !important;
-                animation: none !important;
-                position: relative !important;
-                left: 50% !important;
-                transform: translateX(-50%) !important;
-                top: 50% !important;
-                margin-top: -50px;
-            }
-
-            /* Reduce number of clouds on mobile */
-            .cloud6, .cloud7, .cloud8, .cloud9, .cloud10,
-            .cloud11, .cloud12, .cloud13, .cloud14 {
-                display: none !important;
-            }
-
-            .cloud {
-                animation-duration: 40s !important;
-            }
-        }
-
-        /* Mobile Timeline - Enhanced */
-        @media (max-width: 768px) {
-            .service-timeline {
-                padding: 40px 20px !important;
-            }
-
-            .timeline-container {
-                flex-direction: column !important;
-                gap: 30px;
-                position: relative;
-            }
-
-            .timeline-container::before {
-                content: '';
-                position: absolute;
-                left: 39px;
-                top: 30px;
-                bottom: 30px;
-                width: 2px;
-                background: var(--primary-color);
-                opacity: 0.2;
-                z-index: 0;
-            }
-
-            .timeline-item {
-                max-width: 100% !important;
-                padding: 20px !important;
-                background: white;
-                border-radius: var(--radius-md);
-                box-shadow: var(--shadow-sm);
-                position: relative;
-                margin-left: 20px;
-            }
-
-            .timeline-item:not(:last-child)::after {
-                display: none !important;
-            }
-
-            .timeline-item .number {
-                position: absolute;
-                left: -40px;
-                top: 20px;
-                z-index: 2;
-                background: white !important;
-            }
-        }
-
-        /* Mobile Service Cards */
-        @media (max-width: 480px) {
-            .service-cards {
-                grid-template-columns: 1fr !important;
-                gap: 20px;
-                padding: 0 10px;
-            }
-
-            .service-card {
-                padding: 30px 20px !important;
-            }
-        }
-
-        /* Mobile Registration Form */
-        @media (max-width: 768px) {
-            .registration-wrapper {
-                margin: 20px !important;
-                border-radius: var(--radius-md);
-            }
-
-            .registration-container {
-                grid-template-columns: 1fr !important;
-            }
-
-            .info-panel {
-                padding: 40px 20px !important;
-                min-height: auto;
-            }
-
-            .form-panel {
-                padding: 40px 20px !important;
-            }
-
-            .form-group input,
-            .form-group select,
-            .form-group textarea {
-                font-size: 16px !important; /* Prevents zoom on iOS */
-            }
-
-            .submit-btn {
-                padding: 18px !important;
-                font-size: 16px !important;
-            }
-
-            .features-list li {
-                font-size: 15px !important;
-            }
-
-            .shape-1, .shape-2 {
-                display: none;
-            }
-        }
-
-        /* Mobile Floating CTA */
-        @media (max-width: 480px) {
-            .floating-cta {
-                bottom: 15px !important;
-                right: 15px !important;
-                padding: 12px 20px !important;
-                font-size: 14px !important;
-            }
-
-            .floating-cta svg {
-                width: 18px !important;
-                height: 18px !important;
-            }
-        }
-
-        /* Mobile Footer */
-        @media (max-width: 768px) {
-            footer {
-                padding: 50px 20px 30px !important;
-            }
-
-            .footer-section h3 {
-                font-size: 24px !important;
-                margin-bottom: 25px;
-            }
-
-            .contact-item {
-                flex-direction: column !important;
-                text-align: center;
-                align-items: center;
-            }
-
-            .contact-info {
-                text-align: center !important;
-            }
-
-            .footer-bottom {
-                margin-top: 30px;
-                padding-top: 30px;
-                font-size: 14px !important;
-            }
-        }
-
-        /* Touch-friendly improvements */
-        @media (max-width: 768px) {
-            /* Larger touch targets */
-            button,
-            .header-cta,
-            .floating-cta,
-            .submit-btn,
-            nav a {
-                min-height: 44px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            /* Better spacing for form elements */
-            .form-group {
-                margin-bottom: 20px !important;
-            }
-
-            .form-group input,
-            .form-group select,
-            .form-group textarea {
-                padding: 14px !important;
-                min-height: 44px;
-            }
-        }
-
-        /* Landscape mobile adjustments */
-        @media (max-width: 812px) and (orientation: landscape) {
-            .service-hero {
-                min-height: auto !important;
-                padding: 60px 20px 40px !important;
-            }
-
-            .airplane-section {
-                height: 250px !important;
-            }
-
-            .registration-wrapper {
-                min-height: auto !important;
-            }
-
-            main {
-                margin-top: 70px !important;
-            }
-        }
-
-        /* Very small devices */
+        /* Very small devices final adjustments */
         @media (max-width: 360px) {
-            .logo-text {
-                font-size: 24px !important;
-            }
-
-            .logo img {
-                height: 40px !important;
-            }
-
-            .about-section h1 {
-                font-size: 24px !important;
-            }
-
             .service-content h1 {
                 font-size: 24px !important;
-            }
-
-            .floating-cta {
-                padding: 10px 16px !important;
-                font-size: 13px !important;
-            }
-        }
-
-        /* Service pages specific mobile styles */
-        @media (max-width: 768px) {
-            .service-container {
-                grid-template-columns: 1fr !important;
-                gap: 40px !important;
-            }
-
-            .service-image-wrapper {
-                max-width: 100% !important;
-                padding-bottom: 100% !important;
             }
 
             .service-item h3 {
-                font-size: 18px !important;
-            }
-
-            .service-item-content {
-                margin-left: 0 !important;
-                margin-top: 10px;
+                font-size: 16px !important;
             }
 
             .service-number {
-                width: 28px !important;
-                height: 28px !important;
-                font-size: 14px !important;
-            }
-
-            /* Three.js globe container for mobile */
-            .globe-container {
-                height: 300px !important;
-            }
-
-            .stats-row {
-                flex-wrap: wrap !important;
-                gap: 15px !important;
-            }
-
-            .stat-number {
-                font-size: 22px !important;
-            }
-
-            .stat-label {
-                font-size: 10px !important;
+                width: 24px !important;
+                height: 24px !important;
+                font-size: 12px !important;
             }
         }
-
-
-    /* Very small devices final adjustments */
-    @media (max-width: 360px) {
-        .service-content h1 {
-            font-size: 24px !important;
-        }
-
-        .service-item h3 {
-            font-size: 16px !important;
-        }
-
-        .service-number {
-            width: 24px !important;
-            height: 24px !important;
-            font-size: 12px !important;
-        }
-    }
     </style>
 </head>
 <body>
@@ -1170,31 +845,6 @@
                                     <g class="sheet-group">
                                         <!-- Sheet 1 -->
                                         <g class="sheet sheet-1" data-sheet="1">
-                                            <!-- Paper -->
-                                            <rect x="130" y="140" width="240" height="330" rx="3" fill="white" filter="url(#shadow)"/>
-
-                                            <!-- Checkboxes -->
-                                            <rect x="160" y="190" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
-                                            <rect x="195" y="196" width="120" height="4" rx="2" fill="#ddd"/>
-
-                                            <rect x="160" y="250" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
-                                            <rect x="195" y="256" width="120" height="4" rx="2" fill="#ddd"/>
-
-                                            <rect x="160" y="310" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
-                                            <rect x="195" y="316" width="120" height="4" rx="2" fill="#ddd"/>
-
-                                            <rect x="160" y="370" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
-                                            <rect x="195" y="376" width="120" height="4" rx="2" fill="#ddd"/>
-
-                                            <!-- Ink trails -->
-                                            <path class="ink-trail ink-1" d="M 165 199 L 169 203 L 175 195" opacity="0"/>
-                                            <path class="ink-trail ink-2" d="M 165 259 L 169 263 L 175 255" opacity="0"/>
-                                            <path class="ink-trail ink-3" d="M 165 319 L 169 323 L 175 315" opacity="0"/>
-                                            <path class="ink-trail ink-4" d="M 165 379 L 169 383 L 175 375" opacity="0"/>
-                                        </g>
-
-                                        <!-- Sheet 2 -->
-                                        <g class="sheet sheet-2" data-sheet="2" transform="translate(-400, 0)">
                                             <!-- Paper -->
                                             <rect x="130" y="140" width="240" height="330" rx="3" fill="white" filter="url(#shadow)"/>
 
@@ -1356,44 +1006,106 @@
             lastScroll = currentScroll;
         });
 
-        // Animation control
+        // Animation control with mobile detection
         document.addEventListener('DOMContentLoaded', function() {
             const sheets = document.querySelectorAll('.sheet');
             const pen = document.querySelector('.pen');
             let currentSheetIndex = 0;
+            
+            // Check if mobile
+            const isMobile = window.innerWidth <= 768;
+            const isSmallMobile = window.innerWidth <= 480;
 
-            // Pen positions for checkmarks
+            // Adjust pen positions based on screen size
+            const getScaleFactor = () => {
+                if (isSmallMobile) return 0.7;
+                if (isMobile) return 0.8;
+                return 1;
+            };
+
+            const scale = getScaleFactor();
+
+            // Adjusted pen positions for mobile
             const penPositions = {
-                start: 'translate(230px, 180px) rotate(-90deg)',
+                start: isMobile 
+                    ? `scale(${scale}) translate(${180 * scale}px, ${150 * scale}px) rotate(-90deg)`
+                    : 'translate(230px, 180px) rotate(-90deg)',
+                
                 check1: {
-                    move: 'translate(178px, 192px) rotate(-45deg)',
-                    draw1: 'translate(178px, 199px) rotate(-45deg)',
-                    draw2: 'translate(182px, 203px) rotate(-50deg)',
-                    draw3: 'translate(188px, 195px) rotate(-35deg)',
-                    end: 'translate(190px, 192px) rotate(-45deg)'
+                    move: isMobile 
+                        ? `scale(${scale}) translate(${140 * scale}px, ${155 * scale}px) rotate(-45deg)`
+                        : 'translate(178px, 192px) rotate(-45deg)',
+                    draw1: isMobile 
+                        ? `scale(${scale}) translate(${140 * scale}px, ${160 * scale}px) rotate(-45deg)`
+                        : 'translate(178px, 199px) rotate(-45deg)',
+                    draw2: isMobile 
+                        ? `scale(${scale}) translate(${143 * scale}px, ${163 * scale}px) rotate(-50deg)`
+                        : 'translate(182px, 203px) rotate(-50deg)',
+                    draw3: isMobile 
+                        ? `scale(${scale}) translate(${147 * scale}px, ${157 * scale}px) rotate(-35deg)`
+                        : 'translate(188px, 195px) rotate(-35deg)',
+                    end: isMobile 
+                        ? `scale(${scale}) translate(${150 * scale}px, ${155 * scale}px) rotate(-45deg)`
+                        : 'translate(190px, 192px) rotate(-45deg)'
                 },
+                
                 check2: {
-                    move: 'translate(178px, 252px) rotate(-45deg)',
-                    draw1: 'translate(178px, 259px) rotate(-45deg)',
-                    draw2: 'translate(182px, 263px) rotate(-50deg)',
-                    draw3: 'translate(188px, 255px) rotate(-35deg)',
-                    end: 'translate(190px, 252px) rotate(-45deg)'
+                    move: isMobile 
+                        ? `scale(${scale}) translate(${140 * scale}px, ${195 * scale}px) rotate(-45deg)`
+                        : 'translate(178px, 252px) rotate(-45deg)',
+                    draw1: isMobile 
+                        ? `scale(${scale}) translate(${140 * scale}px, ${200 * scale}px) rotate(-45deg)`
+                        : 'translate(178px, 259px) rotate(-45deg)',
+                    draw2: isMobile 
+                        ? `scale(${scale}) translate(${143 * scale}px, ${203 * scale}px) rotate(-50deg)`
+                        : 'translate(182px, 263px) rotate(-50deg)',
+                    draw3: isMobile 
+                        ? `scale(${scale}) translate(${147 * scale}px, ${197 * scale}px) rotate(-35deg)`
+                        : 'translate(188px, 255px) rotate(-35deg)',
+                    end: isMobile 
+                        ? `scale(${scale}) translate(${150 * scale}px, ${195 * scale}px) rotate(-45deg)`
+                        : 'translate(190px, 252px) rotate(-45deg)'
                 },
+                
                 check3: {
-                    move: 'translate(178px, 312px) rotate(-45deg)',
-                    draw1: 'translate(178px, 319px) rotate(-45deg)',
-                    draw2: 'translate(182px, 323px) rotate(-50deg)',
-                    draw3: 'translate(188px, 315px) rotate(-35deg)',
-                    end: 'translate(190px, 312px) rotate(-45deg)'
+                    move: isMobile 
+                        ? `scale(${scale}) translate(${140 * scale}px, ${235 * scale}px) rotate(-45deg)`
+                        : 'translate(178px, 312px) rotate(-45deg)',
+                    draw1: isMobile 
+                        ? `scale(${scale}) translate(${140 * scale}px, ${240 * scale}px) rotate(-45deg)`
+                        : 'translate(178px, 319px) rotate(-45deg)',
+                    draw2: isMobile 
+                        ? `scale(${scale}) translate(${143 * scale}px, ${243 * scale}px) rotate(-50deg)`
+                        : 'translate(182px, 323px) rotate(-50deg)',
+                    draw3: isMobile 
+                        ? `scale(${scale}) translate(${147 * scale}px, ${237 * scale}px) rotate(-35deg)`
+                        : 'translate(188px, 315px) rotate(-35deg)',
+                    end: isMobile 
+                        ? `scale(${scale}) translate(${150 * scale}px, ${235 * scale}px) rotate(-45deg)`
+                        : 'translate(190px, 312px) rotate(-45deg)'
                 },
+                
                 check4: {
-                    move: 'translate(178px, 372px) rotate(-45deg)',
-                    draw1: 'translate(178px, 379px) rotate(-45deg)',
-                    draw2: 'translate(182px, 383px) rotate(-50deg)',
-                    draw3: 'translate(188px, 375px) rotate(-35deg)',
-                    end: 'translate(190px, 372px) rotate(-45deg)'
+                    move: isMobile 
+                        ? `scale(${scale}) translate(${140 * scale}px, ${275 * scale}px) rotate(-45deg)`
+                        : 'translate(178px, 372px) rotate(-45deg)',
+                    draw1: isMobile 
+                        ? `scale(${scale}) translate(${140 * scale}px, ${280 * scale}px) rotate(-45deg)`
+                        : 'translate(178px, 379px) rotate(-45deg)',
+                    draw2: isMobile 
+                        ? `scale(${scale}) translate(${143 * scale}px, ${283 * scale}px) rotate(-50deg)`
+                        : 'translate(182px, 383px) rotate(-50deg)',
+                    draw3: isMobile 
+                        ? `scale(${scale}) translate(${147 * scale}px, ${277 * scale}px) rotate(-35deg)`
+                        : 'translate(188px, 375px) rotate(-35deg)',
+                    end: isMobile 
+                        ? `scale(${scale}) translate(${150 * scale}px, ${275 * scale}px) rotate(-45deg)`
+                        : 'translate(190px, 372px) rotate(-45deg)'
                 },
-                away: 'translate(230px, 330px) rotate(-90deg)'
+                
+                away: isMobile 
+                    ? `scale(${scale}) translate(${180 * scale}px, ${250 * scale}px) rotate(-90deg)`
+                    : 'translate(230px, 330px) rotate(-90deg)'
             };
 
             function showSheet(index) {
@@ -1482,124 +1194,122 @@
 
             // Start animation
             runCycle();
-        });
-    </script>
-</body>
-</html>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-
-    <script>
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId.startsWith('#')) {
-                        window.location.href = 'index.html' + targetId;
-                    }
-                });
-            });
-
-            // Header scroll effect
-            let lastScroll = 0;
-            window.addEventListener('scroll', () => {
-                const currentScroll = window.pageYOffset;
-                const header = document.querySelector('header');
-
-                if (currentScroll > 100) {
-                    header.style.background = 'rgba(255, 255, 255, 0.98)';
-                    header.style.boxShadow = 'var(--shadow-md)';
-                } else {
-                    header.style.background = 'rgba(255, 255, 255, 0.95)';
-                    header.style.boxShadow = 'var(--shadow-sm)';
-                }
-
-                lastScroll = currentScroll;
-            });
-
-            // Mobile Menu Setup
-    function setupMobileMenu() {
-        // Create mobile menu button
-        const mobileMenuToggle = document.createElement('button');
-        mobileMenuToggle.className = 'mobile-menu-toggle';
-        mobileMenuToggle.innerHTML = '<span></span><span></span><span></span>';
-        mobileMenuToggle.setAttribute('aria-label', 'Toggle menu');
-
-        // Create mobile overlay
-        const mobileOverlay = document.createElement('div');
-        mobileOverlay.className = 'mobile-overlay';
-
-        // Get header and nav elements
-        const headerContent = document.querySelector('.header-content');
-        const nav = document.querySelector('nav');
-
-        // Only add mobile elements if needed
-        if (headerContent && nav) {
-            // Add toggle button to header
-            headerContent.appendChild(mobileMenuToggle);
-            // Add overlay to body
-            document.body.appendChild(mobileOverlay);
-
-            // Toggle menu function
-            function toggleMenu() {
-                const isActive = nav.classList.contains('active');
-
-                if (isActive) {
-                    // Close menu
-                    mobileMenuToggle.classList.remove('active');
-                    nav.classList.remove('active');
-                    mobileOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                } else {
-                    // Open menu
-                    mobileMenuToggle.classList.add('active');
-                    nav.classList.add('active');
-                    mobileOverlay.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                }
-            }
-
-            // Toggle menu when clicking button
-            mobileMenuToggle.addEventListener('click', toggleMenu);
-
-            // Close menu when clicking overlay
-            mobileOverlay.addEventListener('click', toggleMenu);
-
-            // Close menu when clicking a nav link
-            document.querySelectorAll('nav a').forEach(link => {
-                link.addEventListener('click', function() {
-                    if (nav.classList.contains('active')) {
-                        toggleMenu();
-                    }
-                });
-            });
 
             // Handle window resize
             let resizeTimer;
             window.addEventListener('resize', function() {
                 clearTimeout(resizeTimer);
                 resizeTimer = setTimeout(function() {
-                    if (window.innerWidth > 768 && nav.classList.contains('active')) {
-                        toggleMenu();
+                    // Reload page on resize to recalculate positions
+                    if ((window.innerWidth <= 768 && !isMobile) || 
+                        (window.innerWidth > 768 && isMobile)) {
+                        location.reload();
                     }
                 }, 250);
             });
-        }
-    }
+        });
 
-    // Initialize mobile menu when DOM is ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setupMobileMenu);
-    } else {
-        setupMobileMenu();
-    }
+        // Mobile Menu Setup
+        function setupMobileMenu() {
+            // Create mobile menu button
+            const mobileMenuToggle = document.createElement('button');
+            mobileMenuToggle.className = 'mobile-menu-toggle';
+            mobileMenuToggle.innerHTML = '<span></span><span></span><span></span>';
+            mobileMenuToggle.setAttribute('aria-label', 'Toggle menu');
+
+            // Create mobile overlay
+            const mobileOverlay = document.createElement('div');
+            mobileOverlay.className = 'mobile-overlay';
+
+            // Get header and nav elements
+            const headerContent = document.querySelector('.header-content');
+            const nav = document.querySelector('nav');
+
+            // Only add mobile elements if needed
+            if (headerContent && nav) {
+                // Add toggle button to header
+                headerContent.appendChild(mobileMenuToggle);
+                // Add overlay to body
+                document.body.appendChild(mobileOverlay);
+
+                // Toggle menu function
+                function toggleMenu() {
+                    const isActive = nav.classList.contains('active');
+
+                    if (isActive) {
+                        // Close menu
+                        mobileMenuToggle.classList.remove('active');
+                        nav.classList.remove('active');
+                        mobileOverlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                    } else {
+                        // Open menu
+                        mobileMenuToggle.classList.add('active');
+                        nav.classList.add('active');
+                        mobileOverlay.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                }
+
+                // Toggle menu when clicking button
+                mobileMenuToggle.addEventListener('click', toggleMenu);
+
+                // Close menu when clicking overlay
+                mobileOverlay.addEventListener('click', toggleMenu);
+
+                // Close menu when clicking a nav link
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        if (nav.classList.contains('active')) {
+                            toggleMenu();
+                        }
+                    });
+                });
+
+                // Handle window resize
+                let resizeTimer;
+                window.addEventListener('resize', function() {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(function() {
+                        if (window.innerWidth > 768 && nav.classList.contains('active')) {
+                            toggleMenu();
+                        }
+                    }, 250);
+                });
+            }
+        }
+
+        // Initialize mobile menu when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', setupMobileMenu);
+        } else {
+            setupMobileMenu();
+        }
     </script>
 </body>
-</html>
+</html>L 175 315" opacity="0"/>
+                                            <path class="ink-trail ink-4" d="M 165 379 L 169 383 L 175 375" opacity="0"/>
+                                        </g>
 
+                                        <!-- Sheet 2 -->
+                                        <g class="sheet sheet-2" data-sheet="2" transform="translate(-400, 0)">
+                                            <!-- Paper -->
+                                            <rect x="130" y="140" width="240" height="330" rx="3" fill="white" filter="url(#shadow)"/>
+
+                                            <!-- Checkboxes -->
+                                            <rect x="160" y="190" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
+                                            <rect x="195" y="196" width="120" height="4" rx="2" fill="#ddd"/>
+
+                                            <rect x="160" y="250" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
+                                            <rect x="195" y="256" width="120" height="4" rx="2" fill="#ddd"/>
+
+                                            <rect x="160" y="310" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
+                                            <rect x="195" y="316" width="120" height="4" rx="2" fill="#ddd"/>
+
+                                            <rect x="160" y="370" width="20" height="20" rx="3" fill="white" stroke="#333" stroke-width="2.5"/>
+                                            <rect x="195" y="376" width="120" height="4" rx="2" fill="#ddd"/>
+
+                                            <!-- Ink trails -->
+                                            <path class="ink-trail ink-1" d="M 165 199 L 169 203 L 175 195" opacity="0"/>
+                                            <path class="ink-trail ink-2" d="M 165 259 L 169 263 L 175 255" opacity="0"/>
+                                            <path class="ink-trail ink-3" d="M 165 319 L 169 323
